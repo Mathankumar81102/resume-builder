@@ -8,12 +8,16 @@ function UserForm() {
   const {
     state: { template },
   } = useLocation();
-  //   console.log(template);
+    console.log(template);
   const step=useSelector((state)=>state.userData.step)
     
     switch(step){
     case 1:
-     return (<PersonalDetails/>)
+     return (
+
+     <PersonalDetails/>
+     
+     )
       break;
     default :
     return (<Academics/>)

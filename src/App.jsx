@@ -3,12 +3,13 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom'
-
+import { PDFViewer } from "@react-pdf/renderer"
+import { MyDoc } from './components/MyDoc'
 
 function App() {
 
   return (
-    <div>
+    <div className=''>
     <div>
         <Navbar/>
     </div>
@@ -18,7 +19,9 @@ function App() {
     <div>
       <Footer/>
     </div>
-
+    {/* <PDFViewer className='w-96 h-screen '>
+        <MyDoc />
+      </PDFViewer> */}
     
     </div>
     

@@ -21,7 +21,7 @@ function PersonalDetails() {
 
     const handleFileUpload = (file) => {
       setSelectedFile(file.base64);
-      // console.log("File ",file)
+      console.log("File ",file)
     };
     function handleGenderChange(event){
       dispatch(setGender(event.target.value))
@@ -38,7 +38,7 @@ function PersonalDetails() {
 
 
   return (
-<div className="p-10 pt-20 max-w-4xl mx-auto">
+<div className="p-10 pt-20 max-w-4xl ">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
