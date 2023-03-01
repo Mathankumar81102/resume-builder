@@ -33,8 +33,7 @@ body{
 
 }
 
-.change-font{
-  font-family: 'Manrope', sans-serif;}
+
 
   body {
     margin: 0;
@@ -149,4 +148,10 @@ body{
     
   }
   
+  .change-font{
+    font-family: 'Manrope', sans-serif;
+  }
   
+.chang-font-2{
+  font-family: 'Signika Negative', sans-serif;
+}

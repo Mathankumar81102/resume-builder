@@ -24,7 +24,7 @@ root.render(
         <Route path="/" element={<Login/>}/>
         <Route path="Home" element={<App/>} >
               <Route index element={<Hero/>}></Route>
-              <Route path="Templates" element={<Example/>}/>
+              <Route path="Templates" element={<Templates/>}/>
               <Route path="UserForm" element={<UserForm/>} />
         </Route>
                

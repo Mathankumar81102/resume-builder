@@ -7,7 +7,7 @@ import { modern } from '../assets';
 import Footer from './Footer';
 import { useNavigate,Link } from 'react-router-dom';
 const Templates = () => {
-  const Navigate=useNavigate();
+  const Navigate = useNavigate();
 
   const images=[basic,tce,modern]
   const heading=["Basic Template","TCE Template","Modern Template"]
@@ -28,7 +28,7 @@ const Templates = () => {
     <div className="flex  items-center">
     <div>
 
-      <button className=" rounded-full p-4 mr-4 hover:bg-gray-300" onClick={handlePrev}>
+      <button className="rounded-full p-4 mr-4 hover:bg-gray-300" onClick={handlePrev}>
         <svg className="w-8  h-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M15 19l-7-7 7-7"></path>
         </svg>
