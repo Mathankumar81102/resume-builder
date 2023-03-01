@@ -13,7 +13,7 @@ export const Example = () => {
     <div>
       <ComponentToPrint ref={componentRef} />
       <div className="flex justify-center items-center mt-10">
-      <button  className="bg-blue-300 p-4 text-xl font-bold" onClick={handlePrint}>Print this out!</button>
+      <button  className="bg-blue-500 hover:bg-blue-700 text-white rounded-xl p-4 text-xl font-bold" onClick={handlePrint}>Print This Out !</button>
       </div>
       
     </div>
