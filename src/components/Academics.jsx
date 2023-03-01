@@ -22,7 +22,7 @@ import DeleteIcon from '../assets/delete.png'
 function Academics() {
   // const name=useSelector((state)=>state.userData.name)
   // const gender=useSelector((state)=>state.userData.gender)
-  
+
   // const [educationList, setEducationList] = useState([
   //   { school: "", degree: "", field: "", startYear: "", endYear: "",marks:"" },
   // ]);
@@ -36,24 +36,24 @@ function Academics() {
   const { educationList } = useSelector((state) => state.userData);
 
   const handleInputChange = (event, index) => {
-    const { name,value } = event.target;
+    const { name, value } = event.target;
     const list = [...educationList];
-    console.log(name+" "+list[index][name]+" "+value)
-    list[index][name] = value;
+    list[index] = { ...list[index], [name]: value };
+    console.log(educationList)
     dispatch(setEducationList(list));
   };
 
   const handleAddItem = () => {
-    setEducationList([
+    dispatch(setEducationList([
       ...educationList,
-      { school: "", degree: "", field: "", startYear: "", endYear: "",marks:"" },
-    ]);
+      { school: "", degree: "", field: "", startYear: "", endYear: "", marks: "" },
+    ]));
   };
 
   const handleRemoveItem = (index) => {
     const list = [...educationList];
     list.splice(index, 1);
-    setEducationList(list);
+    dispatch(setEducationList(list));
   };
 
   return (
@@ -62,89 +62,103 @@ function Academics() {
         onSubmit={handleSubmit}
         className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
       >
-        <h1 className="mb-6 change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
+        <h1 className="change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
           Academic Details
         </h1>
         <div className=" space-x-10">
-          
+
           <div className="mb-6">
             {educationList.map((education, index) => (
               <div key={index}>
                 <div className="block text-lg text-gray-700 font-bold mb-2 mt-6 flex justify-between">
                   Education-{index + 1}
                   {index !== 0 && <button type="button" >
-                    <img alt="delete" name="hobbies" onClick={() => handleRemoveItem('hobbies',index)} className="w-5 " src={DeleteIcon} />
+                    <img alt="delete" name="hobbies" onClick={() => handleRemoveItem('hobbies', index)} className="w-5 " src={DeleteIcon} />
                   </button>}
                 </div>
-                <label>
-                  School/College: 
-                  <input
-                    type="text"
-                    name="school"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-                    value={education.school}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
+                <label className="my-6">
+                  School/College:
                 </label>
+                <input
+                  type="text"
+                  name="school"
+                  className="my-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                  value={education.school}
+                  onChange={(e) => handleInputChange(e, index)}
+                />
+                <div className="flex w-full justify-between">
+                <div>
                 <label>
                   Degree:
-                  <input
-                    type="text"
-                    name="degree"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-                    value={education.degree}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
                 </label>
+                <input
+                  type="text"
+                  name="degree"
+                  className="my-2 bg-zinc-50 shadow-xl appearance-none border w-[50%] rounded  py-2 px-3 text-gray-700 leading-tight"
+                  value={education.degree}
+                  onChange={(e) => handleInputChange(e, index)}
+                />
+                </div>
+                <div className="">
                 <label>
                   Field:
-                  <input
-                    type="text"
-                    name="field"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-                    value={education.field}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
                 </label>
-                <label>
-                  CGPA/Percentage:
-                  <input
-                    type="text"
-                    name="field"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
-                    value={education.marks}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
+                <input
+                  type="text"
+                  name="field"
+                  className="my-2 bg-zinc-50 shadow-xl appearance-none border rounded py-2 px-3 text-gray-700 leading-tight"
+                  value={education.field}
+                  onChange={(e) => handleInputChange(e, index)}
+                />
+                </div>
+                </div>
+
+                
+                <div className="mt-2 flex" style={{ justifyContent: "spaceBetween" }}>
+                <div><label>
+                  CGPA/%:
                 </label>
-                <div className="mt-2 flex" style={{justifyContent:"spaceBetween"}}>
-                <label>
-                  Start Year:
-                  <input
-                    type="text"
-                    name="startYear"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
-                    value={education.startYear}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
-                </label>
-                <label>
-                  End Year:
-                  <input
-                    type="text"
-                    name="endYear"
-                    className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
-                    value={education.endYear}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
-                </label>
+
+                <input
+                  type="text"
+                  name="field"
+                  className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                  value={education.marks}
+                  onChange={(e) => handleInputChange(e, index)}
+                />
+                </div>
+                  <div><label>
+                    Start Year:
+                  </label>
+
+                    <input
+                      type="text"
+                      name="startYear"
+                      className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                      value={education.startYear}
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>
+                  <div><label htmlFor="endYear">
+                    End Year:
+                  </label>
+
+                    <input
+                      type="text"
+                      name="endYear"
+                      className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                      value={education.endYear}
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>  
                 </div>
                 {index === educationList.length - 1 && (
-                  <button type="button" name='hobbies' className="mt-2 w-full flex justify-center items-baseline" onClick={(e)=>{handleAddItem(e)}}>
-                      <div><img alt="add" name="hobbies" className="w-6 mt-3" src={AddIcon} /></div>
-                      <div>Add Education</div>
-                    </button>
+                  <button type="button" name='hobbies' className="mt-2 w-full flex justify-center items-baseline" onClick={(e) => { handleAddItem(e) }}>
+                    <div><img alt="add" name="hobbies" className="w-6 mt-3" src={AddIcon} /></div>
+                    <div>Add Education</div>
+                  </button>
                 )}
-                
+
               </div>
             ))}
           </div>
