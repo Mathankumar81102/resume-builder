@@ -324,12 +324,7 @@ dispatch(setCoActivities(list));
               </div>
             ))}
           </div>
-
-
-
-
-
-        </div>
+          </div>
         <div className="flex flex-col items-center justify-center mt-6">
           <pre className="change-font text-gray-700  font-extrabold text-lg">Add Your Profile Photo Here</pre>
           <div className="mt-4 ml-28 flex justify-center items-center ">
@@ -341,6 +336,7 @@ dispatch(setCoActivities(list));
           </div>
         </div>
         <div className="mt-10 flex items-center justify-end  ">
+        
           <button
             className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"

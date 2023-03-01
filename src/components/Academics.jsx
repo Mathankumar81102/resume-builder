@@ -39,8 +39,8 @@ function Academics() {
     const { name, value } = event.target;
     const list = [...educationList];
     list[index] = { ...list[index], [name]: value };
-    console.log(educationList)
     dispatch(setEducationList(list));
+    console.log(educationList)
   };
 
   const handleAddItem = () => {
@@ -57,7 +57,7 @@ function Academics() {
   };
 
   return (
-    <div className="p-10 pt-20 max-w-4xl mx-auto">
+    <div className="p-5 pt-20 max-w-4xl mr-0 ">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
@@ -67,46 +67,51 @@ function Academics() {
         </h1>
         <div className=" space-x-10">
 
-          <div className="mb-6">
+          <div className="mb-6 px-10">
             {educationList.map((education, index) => (
+                
               <div key={index}>
-                <div className="block text-lg text-gray-700 font-bold mb-2 mt-6 flex justify-between">
-                  Education-{index + 1}
+              {(index!=0) && (<hr className="border-t-neutral-400 solid mt-8"/>)}
+                <div className="text-lg text-gray-700 font-bold mb-6 mt-6 flex justify-between">
+                  Education Details - {index + 1}
                   {index !== 0 && <button type="button" >
-                    <img alt="delete" name="hobbies" onClick={() => handleRemoveItem('hobbies', index)} className="w-5 " src={DeleteIcon} />
+                    <img alt="delete"  name="education" onClick={() => handleRemoveItem('education', index)} className="w-5 " src={DeleteIcon} />
                   </button>}
                 </div>
                 <label className="my-6">
-                  School/College:
+                  {index<=1?'School / College:':'College / Institution'}
                 </label>
                 <input
                   type="text"
                   name="school"
-                  className="my-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                  placeholder={(index===0) ?`Enter your 10th School Name`:(index===1)?`Enter your 12th School Name (or) Diplomo College Name`:'Enter your other Institution Name' }
+                  className="my-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
                   value={education.school}
                   onChange={(e) => handleInputChange(e, index)}
+                  
                 />
-                <div className="flex w-full justify-between">
+                <div className="flex flex-col mt-3 w-full mb-6  justify-evenly">
                 <div>
                 <label>
-                  Degree:
+                Board of Study :
                 </label>
                 <input
                   type="text"
                   name="degree"
-                  className="my-2 bg-zinc-50 shadow-xl appearance-none border w-[50%] rounded  py-2 px-3 text-gray-700 leading-tight"
+                  className="my-2 ml-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border w-[50%] rounded  py-2 px-3 text-gray-700 leading-tight"
                   value={education.degree}
                   onChange={(e) => handleInputChange(e, index)}
                 />
                 </div>
-                <div className="">
+                <div className={index===0 &&`hidden`}>
                 <label>
-                  Field:
+                  Degree :
                 </label>
                 <input
                   type="text"
                   name="field"
-                  className="my-2 bg-zinc-50 shadow-xl appearance-none border rounded py-2 px-3 text-gray-700 leading-tight"
+                  className="my-2 bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none w-[50%] border rounded py-2 px-3 text-gray-700 leading-tight"
+                  placeholder={index===1&&'Not for 12th Grade '}
                   value={education.field}
                   onChange={(e) => handleInputChange(e, index)}
                 />
@@ -114,48 +119,48 @@ function Academics() {
                 </div>
 
                 
-                <div className="mt-2 flex" style={{ justifyContent: "spaceBetween" }}>
+                <div className=" mt-3 flex" style={{ justifyContent: "spaceBetween" }}>
                 <div><label>
-                  CGPA/%:
+                 {index===0?'Marks in % :':'CGPA / Marks in % :'} 
                 </label>
 
                 <input
                   type="text"
                   name="field"
-                  className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                  className="bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
                   value={education.marks}
                   onChange={(e) => handleInputChange(e, index)}
                 />
                 </div>
                   <div><label>
-                    Start Year:
+                    Start Year :
                   </label>
 
                     <input
                       type="text"
                       name="startYear"
-                      className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                      className="bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
                       value={education.startYear}
                       onChange={(e) => handleInputChange(e, index)}
                     />
                   </div>
                   <div><label htmlFor="endYear">
-                    End Year:
+                    End Year :
                   </label>
 
                     <input
                       type="text"
                       name="endYear"
-                      className="bg-zinc-50 shadow-xl appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                      className="bg-zinc-50 shadow-xl ml-2 appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
                       value={education.endYear}
                       onChange={(e) => handleInputChange(e, index)}
                     />
                   </div>  
                 </div>
                 {index === educationList.length - 1 && (
-                  <button type="button" name='hobbies' className="mt-2 w-full flex justify-center items-baseline" onClick={(e) => { handleAddItem(e) }}>
-                    <div><img alt="add" name="hobbies" className="w-6 mt-3" src={AddIcon} /></div>
-                    <div>Add Education</div>
+                  <button type="button" name='hobbies' className="mt-14 mx-auto px-6 pb-3 bg-slate-200  flex justify-center space-x-3 items-baseline" onClick={(e) => { handleAddItem(e) }}>
+                    <div ><img alt="add" name="hobbies" className="w-5 mt-5" src={AddIcon} /></div>
+                   <div className="text-lg font-light"> Add Education</div>
                   </button>
                 )}
 
@@ -164,9 +169,9 @@ function Academics() {
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-between ">
+        <div className="mt-10 flex items-center justify-between pb-7 pt-5 ">
           <button
-            className=" bg-zinc-500 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className=" bg-zinc-500 ml-10 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
             onClick={() => dispatch(prevStep())}
           >

@@ -11,7 +11,7 @@ age:20,
 fatherName:"",
 motherTongue:"",
 languages:["English"],
-educationList:[{ school: "", degree: "", field: "", startYear: "", endYear: "",marks:"" }],
+educationList:[{ school: "", degree: "", field: "", startYear: "", endYear: "",marks:"" },{ school: "", degree: "", field: "", startYear: "", endYear: "",marks:"" }],
 hobbies:[""],
 coActivities:[""],
 profilePhoto:""
