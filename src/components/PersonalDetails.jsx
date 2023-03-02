@@ -1,25 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { setName, setAddress, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep ,setCoActivities,setHobbies,setProfilePhoto } from "../app/DataSlice"
+import { setName, setAddress, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep ,setProfilePhoto } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import DeleteIcon from '../assets/delete.png'
 import AddIcon from '../assets/add.png'
 
 function PersonalDetails() {
-
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [date, setDate] = useState(null);
-  // const [gender, setGender] = useState("");
-  // const [age,setAge]=useState(20)
-  // const [fatherName,setFatherName]=useState("")
-  // const [motherTongue,setMotherTongue]=useState("")
-  // const [languages,setLanguages]=useState("")
-  // const [step,setStep]=useState(1)
 
   const handleFileUpload = (file) => {
     dispatch(setProfilePhoto(file.base64));
@@ -39,7 +27,7 @@ function PersonalDetails() {
   console.log("From Personal User Data", userData)
 
   // const [languages, setLanguages] = useState(["English"]);
-  const { languages,hobbies,coActivities,profilePhoto }=useSelector((state)=>state.userData)
+  const { languages,profilePhoto }=useSelector((state)=>state.userData)
 
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
@@ -48,28 +36,12 @@ function PersonalDetails() {
     list[index] = value
     dispatch(setLanguages(list));
     }
-    else if(name==='hobbies'){
-      const list = [...hobbies];
-      list[index] = value
-      dispatch(setHobbies(list));
-      }
-     else if(name==='coactivity'){
-        const list = [...coActivities];
-        list[index] = value
-        dispatch(setCoActivities(list));
-        }
   };
 
   const handleAddItem = (event) => {
     if(event.target.name==='language'){
     dispatch(setLanguages([...languages, ""]));
     }
-    if(event.target.name==='hobbies'){
-      dispatch(setHobbies([...hobbies, ""]));
-      }
-      if(event.target.name==='coactivity'){
-        dispatch(setCoActivities([...coActivities, ""]));
-        }
   };
 
   const handleRemoveItem = (name,index) => {
@@ -79,18 +51,6 @@ function PersonalDetails() {
     list.splice(index, 1);
     dispatch(setLanguages(list));
   }
-  if(name ==='hobbies')
-  {
-  const list = [...hobbies];
-  list.splice(index, 1);
-  dispatch(setHobbies(list));
-}
-if(name ==='coactivity')
-{
-const list = [...coActivities];
-list.splice(index, 1);
-dispatch(setCoActivities(list));
-}
   };
 
 
@@ -263,68 +223,7 @@ dispatch(setCoActivities(list));
           </div>
 
         </div>
-        <hr className="border-t-4 solid mt-4"></hr>
-        <div className="flex items-center justify-evenly">
-          <div className="mt-6 mb-6">
-            <label
-              className="block text-lg text-gray-700 font-bold mb-2"
-              htmlFor="address"
-            >
-              Hobbies
-            </label>
-            {hobbies.map((education, index) => (    
-              <div key={index} className=" mb-2">
-                <label className="flex">
 
-                  <input className="mr-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder={`Hobby ${index+1}`}
-                    type="text" name="hobbies" value={hobbies[index]} onChange={(e) => handleInputChange(e, index)} />
-                  {index !== 0 && <button type="button" >
-                    <img alt="delete" name="hobbies" onClick={() => handleRemoveItem('hobbies',index)} className="w-5" src={DeleteIcon} />
-                  </button>}
-                </label>
-
-                <div className="flex justify-center align-center text-lg">
-                  {index === hobbies.length - 1 && (
-                    <button type="button" name='hobbies' onClick={(e)=>{handleAddItem(e)}}>
-                      <img alt="add" name="hobbies" className="w-5 mt-3" src={AddIcon} />
-                    </button>
-
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 mb-6">
-            <label
-              className="block text-lg text-gray-700 font-bold mb-2"
-              htmlFor="address"
-            >
-              CO-CURRICULAR ACTIVITIES
-
-            </label>
-            {coActivities.map((education, index) => (
-              <div key={index} className=" mb-2">
-                <label className="flex">
-
-                  <input className="mr-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder={`Activity ${index+1}`}
-                    type="text" name="coactivity" value={coActivities[index]} onChange={(e) => handleInputChange(e, index)} />
-                  {index !== 0 && <button type="button" >
-                    <img alt="delete" name="coactivity" onClick={() => handleRemoveItem('coactivity',index)} className="w-5" src={DeleteIcon} />
-                  </button>}
-                </label>
-
-                <div className="flex justify-center align-center text-lg">
-                  {index === coActivities.length - 1 && (
-                    <button type="button" name='coactivity' onClick={(e)=>{handleAddItem(e)}}>
-                      <img alt="add" name="coactivity" className="w-5 mt-3" src={AddIcon} />
-                    </button>
-
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          </div>
         <div className="flex flex-col items-center justify-center mt-6">
           <pre className="change-font text-gray-700  font-extrabold text-lg">Add Your Profile Photo Here</pre>
           <div className="mt-4 ml-28 flex justify-center items-center ">

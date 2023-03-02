@@ -2,16 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  setName,
-  setAddress,
-  setAge,
-  setDate,
-  setEmail,
-  setFatherName,
-  setGender,
-  setLanguages,
-  setMotherTongue,
-  setPhone,
   nextStep,
   prevStep,
   setEducationList
