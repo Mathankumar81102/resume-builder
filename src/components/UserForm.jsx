@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Academics from "./Academics";
 import { Example } from "./Example";
 import Activities from "./Activities";
+import Projects from "./Projects"
 function UserForm() {
   const {
     state: { template },
@@ -35,6 +36,14 @@ function UserForm() {
           <Example />
         </div>
      )
+     case 4:
+      return(
+        <div className="grid grid-cols-2">
+          <Projects />
+          <Example />
+        </div>
+      )
+
     default:
       return (
         <div className="grid grid-cols-2">

@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { nextStep, setCoCurricularActivities, setProfessionalObjective,setExtraCurricularActivities, setAchievements, setHobbies, prevStep } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
-import DeleteIcon from '../assets/delete.png'
-import AddIcon from '../assets/add.png'
 import ListInput from "./ListInput";
 
 function Activities() {

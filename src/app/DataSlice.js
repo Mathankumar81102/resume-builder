@@ -17,7 +17,8 @@ const initialState = {
     coCurricularActivities: [""],
     extraCurricularActivities: [""],
     achievements: [""],
-    professionalObjective: ""
+    professionalObjective: "",
+    projectList: [{ name: "", description: "", link: "" }],
 }
 
 
@@ -43,9 +44,10 @@ export const dataSlice = createSlice({
         setCoCurricularActivities: (state, action) => { state.coCurricularActivities = action.payload },
         setExtraCurricularActivities: (state, action) => { state.extraCurricularActivities = action.payload },
         setAchievements: (state, action) => { state.achievements = action.payload },
-        setProfessionalObjective: (state, action) => { state.professionalObjective = action.payload }
+        setProfessionalObjective: (state, action) => { state.professionalObjective = action.payload },
+        setProjectList: (state, action) => { state.projectList = action.payload },
     }
 })
 
 export default dataSlice.reducer;
-export const { setName, setAddress, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
+export const { setName, setAddress, setAge, setDate, setEmail, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
