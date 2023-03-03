@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { nextStep, prevStep, setProjectList } from '../app/DataSlice'
+import { nextStep, prevStep, setProjectList, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies } from '../app/DataSlice'
 
 import DeleteIcon from '../assets/delete.png'
 import AddIcon from '../assets/add.png'
+import ListInput from './ListInput'
 
 
 function Projects() {
@@ -13,27 +14,73 @@ function Projects() {
         e.preventDefault();
     };
 
-    const { projectList } = useSelector((state) => state.userData);
+    const { projectList, programmingLanguages, toolsAndTechnologies, areasOfInterest } = useSelector((state) => state.userData);
 
     const handleInputChange = (event, index) => {
         const { name, value } = event.target;
-        const list = [...projectList];
-        list[index] = { ...list[index], [name]: value };
-        dispatch(setProjectList(list));
-        console.log(projectList)
+        if (name === 'programmingLanguages') {
+            const list = [...programmingLanguages];
+            list[index] = value
+            dispatch(setProgrammingLanguages(list));
+        }
+        else if (name === 'toolsAndTechnologies') {
+            const list = [...toolsAndTechnologies];
+            list[index] = value
+            dispatch(setToolsAndTechnologies(list));
+        }
+        else if (name === 'areasOfInterest') {
+            const list = [...areasOfInterest];
+            list[index] = value
+            dispatch(setAreasOfInterest(list));
+        }
+        else {
+            const list = [...projectList];
+            list[index] = { ...list[index], [name]: value };
+            dispatch(setProjectList(list));
+            console.log(projectList)
+        }
     };
 
-    const handleAddItem = () => {
-        dispatch(setProjectList([
-            ...projectList,
-            { name: "", description: "", link: "" },
-        ]));
+    const handleAddItem = (event) => {
+        const eventName = event.target.name;
+        if (eventName === 'programmingLanguages') {
+            dispatch(setProgrammingLanguages([...programmingLanguages, ""]));
+        }
+        else if (eventName === 'toolsAndTechnologies') {
+            dispatch(setToolsAndTechnologies([...toolsAndTechnologies, ""]));
+        }
+        else if (eventName === 'areasOfInterest') {
+            dispatch(setAreasOfInterest([...areasOfInterest, ""]));
+        }
+        else {
+            dispatch(setProjectList([
+                ...projectList,
+                { name: "", description: "", link: "" },
+            ]));
+        }
     };
 
-    const handleRemoveItem = (index) => {
-        const list = [...projectList];
-        list.splice(index, 1);
-        dispatch(setProjectList(list));
+    const handleRemoveItem = (name, index) => {
+        if (name === 'programmingLanguages') {
+            const list = [...programmingLanguages];
+            list.splice(index, 1);
+            dispatch(setProgrammingLanguages(list));
+        }
+        else if (name === 'toolsAndTechnologies') {
+            const list = [...toolsAndTechnologies];
+            list.splice(index, 1);
+            dispatch(setToolsAndTechnologies(list));
+        }
+        else if (name === 'areasOfInterest') {
+            const list = [...areasOfInterest];
+            list.splice(index, 1);
+            dispatch(setAreasOfInterest(list));
+        }
+        else {
+            const list = [...projectList];
+            list.splice(index, 1);
+            dispatch(setProjectList(list));
+        }
     };
 
 
@@ -45,6 +92,12 @@ function Projects() {
                 <h1 className="mb-6 change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
                     Skills and Projects
                 </h1>
+
+                <ListInput label="programmingLanguages" list={programmingLanguages} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
+
+                <ListInput label="toolsAndTechnologies" list={toolsAndTechnologies} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
+                
+                <ListInput label="areasOfInterest" list={areasOfInterest} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
                 <div className="mb-6 px-10">
                     {projectList.map((project, index) => (
