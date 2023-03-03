@@ -4,6 +4,7 @@ const initialState = {
     step: 1,
     name: "",
     phone: "",
+    regno:"",
     address: "",
     date: "",
     gender: "",
@@ -32,6 +33,7 @@ export const dataSlice = createSlice({
         setName: (state, action) => { state.name = action.payload },
         setEmail: (state, action) => { state.email = action.payload },
         setPhone: (state, action) => { state.phone = action.payload },
+        setRegno: (state, action) => { state.regno = action.payload },
         setAddress: (state, action) => { state.address = action.payload },
         setDate: (state, action) => { state.date = action.payload },
         setGender: (state, action) => { state.gender = action.payload },
@@ -56,4 +58,4 @@ export const dataSlice = createSlice({
 })
 
 export default dataSlice.reducer;
-export const { setName, setAddress, setAge, setDate, setEmail, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies,setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
+export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies,setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions

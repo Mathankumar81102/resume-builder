@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { setName, setAddress, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep ,setProfilePhoto } from "../app/DataSlice"
+import { setName, setAddress, setRegno, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep ,setProfilePhoto } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import DeleteIcon from '../assets/delete.png'
@@ -100,6 +100,16 @@ function PersonalDetails() {
               value={userData.phone}
               onChange={(e) => dispatch(setPhone(e.target.value))}
             />
+            <label className="block text-lg  text-gray-700 font-bold mb-2" htmlFor="regno">
+              Regno
+            </label>
+            <input
+              className="bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="regno"
+              type="text"
+              value={userData.regno}
+              onChange={(e) => dispatch(setRegno(e.target.value))}
+            />
           </div>
           <div className="mb-4">
             <label
@@ -108,7 +118,7 @@ function PersonalDetails() {
             >
               Address
             </label>
-            <textarea rows={4}
+            <textarea rows={5}
               className="bg-zinc-50 shadow-xl border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="address"
               value={userData.address}
