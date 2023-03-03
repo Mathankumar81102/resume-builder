@@ -3,18 +3,24 @@ import DeleteIcon from '../assets/delete.png'
 import AddIcon from '../assets/add.png'
 
 export default function ListInput({ label, list, handleAddItem, handleRemoveItem, handleInputChange }) {
-    
+  const toTitleCase = (word) => {
+    return word.replace(/([A-Z])/g, function (match) {
+      return " " + match;
+    }).replace(/^./, function (match) {
+      return match.toUpperCase();
+    })
+  }
   return (
     <div className="mb-6 mx-10">
       <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor={label}>
-        {label}
+        {toTitleCase(label)}
       </label>
       {list.map((item, index) => (
         <div key={index} className="mb-2">
           <label className="flex">
             <input
               className="mr-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder={`${label} ${index + 1}`}
+              placeholder={`${toTitleCase(label)} ${index + 1}`}
               type="text"
               name={label}
               value={list[index]}
