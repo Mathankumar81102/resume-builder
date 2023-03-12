@@ -21,42 +21,42 @@ function UserForm() {
           <PersonalDetails />
           <Example />
         </div>
-     )
+      )
     case 2:
       return (
         <div className="grid grid-cols-2">
           <Academics />
           <Example />
         </div>
-     )
-     case 3:
+      )
+    case 3:
       return (
         <div className="grid grid-cols-2">
           <Activities />
           <Example />
         </div>
-     )
-     case 4:
-      return(
+      )
+    case 4:
+      return (
         <div className="grid grid-cols-2">
           <Projects />
           <Example />
         </div>
       )
-        case 5:
-          return(
-            <div>
-              <Example />
-            </div>
+    case 5:
+      return (
+        <div>
+          <Example />
+        </div>
 
-          )
+      )
     default:
       return (
         <div className="grid grid-cols-2">
           <Activities />
           <Example />
         </div>
-     )
+      )
   }
 
 

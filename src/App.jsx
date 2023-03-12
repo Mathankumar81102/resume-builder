@@ -10,21 +10,21 @@ function App() {
 
   return (
     <div className=''>
-    <div>
-        <Navbar/>
-    </div>
-    <div className="">
-        <Outlet/>
-    </div>
-    <div>
-      <Footer/>
-    </div>
-    {/* <PDFViewer className='w-96 h-screen '>
+      <div>
+        <Navbar />
+      </div>
+      <div className="">
+        <Outlet />
+      </div>
+      <div>
+        <Footer />
+      </div>
+      {/* <PDFViewer className='w-96 h-screen '>
         <MyDoc />
       </PDFViewer> */}
-    
+
     </div>
-    
+
 
   )
 }

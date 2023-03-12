@@ -4,16 +4,16 @@ const initialState = {
     step: 1,
     name: "",
     phone: "",
-    regno:"",
+    regno: "",
     address: "",
-    email:"",
+    email: "",
     date: "",
     gender: "",
-    age: 20,
+    age: "",
     fatherName: "",
     motherTongue: "",
     languages: ["English"],
-    educationList: [{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "XII", board: "", startYear: "", endYear: "", marks: "" },{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" },],
+    educationList: [{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "XII", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" },],
     hobbies: [""],
     profilePhoto: "",
     coCurricularActivities: [""],
@@ -21,9 +21,9 @@ const initialState = {
     achievements: [""],
     professionalObjective: "",
     projectList: [{ name: "", description: "", link: "" }],
-    programmingLanguages:[""],
-    toolsAndTechnologies:[""],
-    areasOfInterest:[""],
+    programmingLanguages: [""],
+    toolsAndTechnologies: [""],
+    areasOfInterest: [""],
 }
 
 
@@ -59,4 +59,4 @@ export const dataSlice = createSlice({
 })
 
 export default dataSlice.reducer;
-export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies,setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
+export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions

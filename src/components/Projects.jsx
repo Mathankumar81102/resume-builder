@@ -96,7 +96,7 @@ function Projects() {
                 <ListInput label="programmingLanguages" list={programmingLanguages} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
                 <ListInput label="toolsAndTechnologies" list={toolsAndTechnologies} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
-                
+
                 <ListInput label="areasOfInterest" list={areasOfInterest} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
                 <div className="mb-6 px-10">

@@ -190,9 +190,9 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
             </div>
 
             <div className="mt-6">
-                <p>I, <span className="font-bold">{userData.name}</span>, do hereby confirm that the information given above is true to the best of my wat knowledge.</p>
-                <p>Place: Madurai</p>
-                <p>Date: {today.toLocaleDateString()}</p>
+              <p>I, <span className="font-bold">{userData.name}</span>, do hereby confirm that the information given above is true to the best of my wat knowledge.</p>
+              <p>Place: Madurai</p>
+              <p>Date: {today.toLocaleDateString()}</p>
             </div>
 
           </div>

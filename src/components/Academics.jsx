@@ -59,69 +59,69 @@ function Academics() {
 
           <div className="mb-6 px-10">
             {educationList.map((education, index) => (
-                
+
               <div key={index}>
-              {(index!=0) && (<hr className="border-t-neutral-400 solid mt-8"/>)}
+                {(index != 0) && (<hr className="border-t-neutral-400 solid mt-8" />)}
                 <div className="text-lg text-gray-700 font-bold mb-6 mt-6 flex justify-between">
                   Education Details - {index + 1}
-                  {index >2  && <button type="button" >
-                    <img alt="delete"  name="education" onClick={() => handleRemoveItem('education', index)} className="w-5 " src={DeleteIcon} />
+                  {index > 2 && <button type="button" >
+                    <img alt="delete" name="education" onClick={() => handleRemoveItem('education', index)} className="w-5 " src={DeleteIcon} />
                   </button>}
                 </div>
                 <label className="my-6">
-                  {index<=1?'School / College:':'College Name'}
+                  {index <= 1 ? 'School / College:' : 'College Name'}
                 </label>
                 <input
                   type="text"
                   name="school"
-                  placeholder={(index===0) ?`Enter your 10th School Name`:(index===1)?`Enter your 12th School Name (or) Diplomo College Name`:'Enter your other College Name' }
+                  placeholder={(index === 0) ? `Enter your 10th School Name` : (index === 1) ? `Enter your 12th School Name (or) Diplomo College Name` : 'Enter your other College Name'}
                   className="my-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
                   value={education.school}
                   onChange={(e) => handleInputChange(e, index)}
-                  
+
                 />
                 <div className="flex flex-col mt-3 w-full mb-6  justify-evenly">
-                <div>
-                <label>
-                Board of Study :
-                </label>
-                <input
-                  type="text"
-                  name="board"
-                  className="my-2 ml-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border w-[50%] rounded  py-2 px-3 text-gray-700 leading-tight"
-                  value={education.board}
-                  onChange={(e) => handleInputChange(e, index)}
-                />
-                </div>
-                <div className={index===0 &&`hidden`}>
-                <label>
-                  {index==1?'Course :':'Degree :'}
-                </label>
-                <input
-                  type="text"
-                  name="degree"
-                  className="my-2 bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none w-[50%] border rounded py-2 px-3 text-gray-700 leading-tight"
-                  placeholder={index===1?'Not for 12th Grade ':'eg. B.E (CSE) '}
-                  value={education.degree}
-                  onChange={(e) => handleInputChange(e, index)}
-                />
-                </div>
+                  <div>
+                    <label>
+                      Board of Study :
+                    </label>
+                    <input
+                      type="text"
+                      name="board"
+                      className="my-2 ml-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border w-[50%] rounded  py-2 px-3 text-gray-700 leading-tight"
+                      value={education.board}
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>
+                  <div className={index === 0 && `hidden`}>
+                    <label>
+                      {index == 1 ? 'Course :' : 'Degree :'}
+                    </label>
+                    <input
+                      type="text"
+                      name="degree"
+                      className="my-2 bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none w-[50%] border rounded py-2 px-3 text-gray-700 leading-tight"
+                      placeholder={index === 1 ? 'Not for 12th Grade ' : 'eg. B.E (CSE) '}
+                      value={education.degree}
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>
                 </div>
 
-                
+
                 <div className=" mt-3 flex" style={{ justifyContent: "spaceBetween" }}>
-                <div><label>
-                 {index===0?'Marks in % :':'CGPA / Marks in % :'} 
-                </label>
+                  <div><label>
+                    {index === 0 ? 'Marks in % :' : 'CGPA / Marks in % :'}
+                  </label>
 
-                <input
-                  type="text"
-                  name="marks"
-                  className="bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
-                  value={education.marks}
-                  onChange={(e) => handleInputChange(e, index)}
-                />
-                </div>
+                    <input
+                      type="text"
+                      name="marks"
+                      className="bg-zinc-50 shadow-xl ml-2 focus:outline-slate-300 appearance-none border rounded w-[45%] py-2 px-3 text-gray-700 leading-tight"
+                      value={education.marks}
+                      onChange={(e) => handleInputChange(e, index)}
+                    />
+                  </div>
                   <div><label>
                     Start Year :
                   </label>
@@ -145,12 +145,12 @@ function Academics() {
                       value={education.endYear}
                       onChange={(e) => handleInputChange(e, index)}
                     />
-                  </div>  
+                  </div>
                 </div>
                 {index === educationList.length - 1 && (
-                  <button type="button"  className="mt-14 mx-auto px-6 pb-3 bg-slate-200  flex justify-center space-x-3 items-baseline" onClick={(e) => { handleAddItem(e) }}>
+                  <button type="button" className="mt-14 mx-auto px-6 pb-3 bg-slate-200  flex justify-center space-x-3 items-baseline" onClick={(e) => { handleAddItem(e) }}>
                     <div ><img alt="add" name="hobbies" className="w-5 mt-5" src={AddIcon} /></div>
-                   <div className="text-lg font-light"> Add Education</div>
+                    <div className="text-lg font-light"> Add Education</div>
                   </button>
                 )}
 

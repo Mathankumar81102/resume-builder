@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { nextStep, setCoCurricularActivities, setProfessionalObjective,setExtraCurricularActivities, setAchievements, setHobbies, prevStep } from "../app/DataSlice"
+import { nextStep, setCoCurricularActivities, setProfessionalObjective, setExtraCurricularActivities, setAchievements, setHobbies, prevStep } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import ListInput from "./ListInput";
@@ -93,21 +93,21 @@ function Activities() {
         <h1 className="mb-6 change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
           Activities
         </h1>
-        
+
         <div className="mb-4 mx-10">
-            <label
-              className="block text-lg text-gray-700 font-bold mb-2"
-              htmlFor="professionalObjective"
-            >
-              Professional Objective
-            </label>
-            <textarea rows={4}
-              className="bg-zinc-50 shadow-xl border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="professionalObjective"
-              value={userData.professionalObjective}
-              onChange={(e) => dispatch(setProfessionalObjective(e.target.value))}
-            ></textarea>
-          </div>
+          <label
+            className="block text-lg text-gray-700 font-bold mb-2"
+            htmlFor="professionalObjective"
+          >
+            Professional Objective
+          </label>
+          <textarea rows={4}
+            className="bg-zinc-50 shadow-xl border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="professionalObjective"
+            value={userData.professionalObjective}
+            onChange={(e) => dispatch(setProfessionalObjective(e.target.value))}
+          ></textarea>
+        </div>
 
         <ListInput label="achievements" list={achievements} handleAddItem={handleAddItem} handleInputChange={handleInputChange} handleRemoveItem={handleRemoveItem} />
         <ListInput label="coCurricularActivities" list={coCurricularActivities} handleAddItem={handleAddItem} handleInputChange={handleInputChange} handleRemoveItem={handleRemoveItem} />

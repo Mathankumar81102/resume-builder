@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { setName, setAddress, setRegno, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep ,setProfilePhoto } from "../app/DataSlice"
+import { setName, setAddress, setRegno, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, setProfilePhoto } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import DeleteIcon from '../assets/delete.png'
@@ -27,30 +27,29 @@ function PersonalDetails() {
   console.log("From Personal User Data", userData)
 
   // const [languages, setLanguages] = useState(["English"]);
-  const { languages,profilePhoto }=useSelector((state)=>state.userData)
+  const { languages, profilePhoto } = useSelector((state) => state.userData)
 
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
-    if(name==='language'){
-    const list = [...languages];
-    list[index] = value
-    dispatch(setLanguages(list));
+    if (name === 'language') {
+      const list = [...languages];
+      list[index] = value
+      dispatch(setLanguages(list));
     }
   };
 
   const handleAddItem = (event) => {
-    if(event.target.name==='language'){
-    dispatch(setLanguages([...languages, ""]));
+    if (event.target.name === 'language') {
+      dispatch(setLanguages([...languages, ""]));
     }
   };
 
-  const handleRemoveItem = (name,index) => {
-    if(name ==='language')
-    {
-    const list = [...languages];
-    list.splice(index, 1);
-    dispatch(setLanguages(list));
-  }
+  const handleRemoveItem = (name, index) => {
+    if (name === 'language') {
+      const list = [...languages];
+      list.splice(index, 1);
+      dispatch(setLanguages(list));
+    }
   };
 
 
@@ -213,16 +212,16 @@ function PersonalDetails() {
                 <label className="flex">
 
                   <input className="mr-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder={`Language ${index+1}`}
+                    placeholder={`Language ${index + 1}`}
                     type="text" name="language" value={languages[index]} onChange={(e) => handleInputChange(e, index)} />
                   {index !== 0 && <button type="button" >
-                    <img alt="delete" name="language" onClick={() => handleRemoveItem('language',index)} className="w-5" src={DeleteIcon} />
+                    <img alt="delete" name="language" onClick={() => handleRemoveItem('language', index)} className="w-5" src={DeleteIcon} />
                   </button>}
                 </label>
 
                 <div className="flex justify-center align-center text-lg">
                   {index === languages.length - 1 && (
-                    <button type="button" name='language' onClick={(e)=>{handleAddItem(e)}}>
+                    <button type="button" name='language' onClick={(e) => { handleAddItem(e) }}>
                       <img alt="add" name="language" className="w-5 mt-3" src={AddIcon} />
                     </button>
 
@@ -245,7 +244,7 @@ function PersonalDetails() {
           </div>
         </div>
         <div className="mt-10 flex items-center justify-end  ">
-        
+
           <button
             className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
