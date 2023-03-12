@@ -10,6 +10,7 @@ export const Example = () => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
+    pageStyle:"@page { size: A4 }",
   });
   
   const step = useSelector((state) => state.userData.step)

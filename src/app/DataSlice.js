@@ -12,7 +12,7 @@ const initialState = {
     fatherName: "",
     motherTongue: "",
     languages: ["English"],
-    educationList: [{ school: "", degree: "", field: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "", field: "", startYear: "", endYear: "", marks: "" }],
+    educationList: [{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "XII", board: "", startYear: "", endYear: "", marks: "" },{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" },],
     hobbies: [""],
     profilePhoto: "",
     coCurricularActivities: [""],

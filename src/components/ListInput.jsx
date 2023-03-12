@@ -20,7 +20,7 @@ export default function ListInput({ label, list, handleAddItem, handleRemoveItem
           <label className="flex">
             <input
               className="mr-2 bg-zinc-50 shadow-xl appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder={`${toTitleCase(label)} ${index + 1}`}
+              placeholder={(label!=="toolsAndTechnologies")?`${toTitleCase(label)} ${index + 1}`:(index===0)?"Add the tools or technologies e.g Front-end : ReactJS , Database : SQL ":"Add the tools or technologies e.g Back-end : NodeJS , Libraries : Redux " }
               type="text"
               name={label}
               value={list[index]}
@@ -38,15 +38,22 @@ export default function ListInput({ label, list, handleAddItem, handleRemoveItem
               </button>
             )}
           </label>
-          <div className="flex justify-center align-center text-lg">
+          <div className="flex mt-7  justify-center align-center " name={label}>
             {index === list.length - 1 && (
-              <button type="button" name={label} onClick={(e) => handleAddItem(e)}>
-                <img alt="add" name={label} className="w-5 mt-3" src={AddIcon} />
+              <button type="button" className='bg-teal-100 p-2 rounded-2xl space-x-2 flex justify-center items-center ' name={label} onClick={(e) => handleAddItem(e)}>
+               
+               <img alt="add" name={label} className="w-5 " src={AddIcon} onClick={(e) => handleAddItem(e)}/>
+               {/* <h1 name={label} onClick={(e) => handleAddItem(e)}>Add {toTitleCase(label)}</h1>  */}
+               
               </button>
             )}
+
           </div>
+          {index === list.length - 1 && <hr className='mt-6 border-[1px]'/>}        
         </div>
+
       ))}
+
     </div>
   );
 }

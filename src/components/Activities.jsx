@@ -14,7 +14,7 @@ function Activities() {
 
   const userData = useSelector((state) => state.userData)
 
-  console.log("From Personal User Data", userData)
+  console.log("From Activities", userData)
 
   const { professionalObjective, achievements, coCurricularActivities, extraCurricularActivities, hobbies } = useSelector((state) => state.userData)
 

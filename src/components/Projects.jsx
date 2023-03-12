@@ -103,7 +103,7 @@ function Projects() {
                     {projectList.map((project, index) => (
 
                         <div key={index}>
-                            {(index != 0) && (<hr className="border-t-neutral-400 solid mt-8" />)}
+                            {(index !== 0) && (<hr className="border-t-neutral-400 solid mt-8" />)}
                             <div className="text-lg text-gray-700 font-bold mb-6 mt-6 flex justify-between">
                                 Project Details - {index + 1}
                                 {index !== 0 && <button type="button" >
