@@ -1,7 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { setName, setAddress, setRegno, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, setProfilePhoto } from "../app/DataSlice"
+import { setName, setSignature, setAddress, setRegno, setAge, setDate, setEmail, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, setProfilePhoto } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import DeleteIcon from '../assets/delete.png'
@@ -9,10 +8,16 @@ import AddIcon from '../assets/add.png'
 
 function PersonalDetails() {
 
-  const handleFileUpload = (file) => {
+  const handleProfilePhotoUpload = (file) => {
     dispatch(setProfilePhoto(file.base64));
     console.log("File ", file)
   };
+
+  const handleSignatureUpload = (file) => {
+    dispatch(setSignature(file.base64));
+    console.log("File ", file)
+  };
+
   function handleGenderChange(event) {
     dispatch(setGender(event.target.value))
   }
@@ -233,16 +238,30 @@ function PersonalDetails() {
 
         </div>
 
+
         <div className="flex flex-col items-center justify-center mt-6">
           <pre className="change-font text-gray-700  font-extrabold text-lg">Add Your Profile Photo Here</pre>
           <div className="mt-4 ml-28 flex justify-center items-center ">
             <FileBase64
               accept="image/*"
               multiple={false}
-              onDone={handleFileUpload}
+              onDone={handleProfilePhotoUpload}
             />
           </div>
         </div>
+
+        <div className="flex flex-col items-center justify-center mt-6">
+          <pre className="change-font text-gray-700  font-extrabold text-lg">Add Your Signature Here</pre>
+          <div className="mt-4 ml-28 flex justify-center items-center ">
+            <FileBase64
+              accept="image/*"
+              multiple={false}
+              onDone={handleSignatureUpload}
+            />
+          </div>
+
+        </div>
+
         <div className="mt-10 flex items-center justify-end  ">
 
           <button

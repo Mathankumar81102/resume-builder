@@ -13,9 +13,9 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
       <div className="h-[297mm] overflow-y-scroll shadow-2xl border-zinc-400 bg-white border-4  m-0 p-0">
         <div ref={ref} className="w-[210mm] h-full" >
           <div className="w-[210mm] m-0"><img src={tceheader} alt="tceheader"></img></div>
-          {/* <div className="pt-2 absolute right-[2.5cm] ">
+          <div className="pt-2 absolute right-[2.5cm] ">
             {userData.profilePhoto !== "" && <img src={userData.profilePhoto} className="h-[3.0cm] w-[2.5cm]" alt="profilephoto"></img>}
-          </div> */}
+          </div>
           <div className="text-[12pt] mt-6 w-[210mm] px-[2cm] " >
             <div><span className="font-bold">NAME :</span> {userData.name}</div>
             <div><span className="font-bold">REG NO :</span> {userData.regno}</div>
@@ -189,10 +189,16 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
               </div>
             </div>
 
-            <div className="mt-6">
-              <p>I, <span className="font-bold">{userData.name}</span>, do hereby confirm that the information given above is true to the best of my wat knowledge.</p>
+            <div className="relative mt-6">
+              <p>I, <span className="font-bold">{userData.name}</span>, do hereby confirm that the information given above is true to the best of my knowledge.</p>
               <p>Place: Madurai</p>
               <p>Date: {today.toLocaleDateString()}</p>
+              <div className="absolute right-12 top-8 flex flex-col justify-center items-center">
+                <div>
+                  {userData.signature !== "" && <img src={userData.signature} className="h-[1.25cm] w-[4.8cm]" alt="signature"></img>}
+                </div>
+                <div>Signature</div>
+              </div>
             </div>
 
           </div>

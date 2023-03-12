@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
 import PersonalDetails from "./PersonalDetails";
 import { useSelector } from "react-redux";
 import Academics from "./Academics";

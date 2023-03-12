@@ -16,6 +16,7 @@ const initialState = {
     educationList: [{ school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "XII", board: "", startYear: "", endYear: "", marks: "" }, { school: "", degree: "", board: "", startYear: "", endYear: "", marks: "" },],
     hobbies: [""],
     profilePhoto: "",
+    signature: "",
     coCurricularActivities: [""],
     extraCurricularActivities: [""],
     achievements: [""],
@@ -46,6 +47,7 @@ export const dataSlice = createSlice({
         prevStep: (state) => { state.step -= 1 },
         setHobbies: (state, action) => { state.hobbies = action.payload },
         setProfilePhoto: (state, action) => { state.profilePhoto = action.payload },
+        setSignature: (state, action) => { state.signature = action.payload },
         setEducationList: (state, action) => { state.educationList = action.payload },
         setCoCurricularActivities: (state, action) => { state.coCurricularActivities = action.payload },
         setExtraCurricularActivities: (state, action) => { state.extraCurricularActivities = action.payload },
@@ -59,4 +61,4 @@ export const dataSlice = createSlice({
 })
 
 export default dataSlice.reducer;
-export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
+export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setSignature, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
