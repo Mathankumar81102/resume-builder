@@ -6,6 +6,7 @@ const initialState = {
     phone: "",
     regno:"",
     address: "",
+    email:"",
     date: "",
     gender: "",
     age: 20,
