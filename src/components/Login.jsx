@@ -14,7 +14,7 @@ function Login() {
     try {
       const res = await axios.post('/api/login', { email, password });
       localStorage.setItem('token', res.data.token);
-      Navigate('/');
+      Navigate('/Home');
     } catch (err) {
       console.error(err);
     }
@@ -33,7 +33,7 @@ function Login() {
 
         <div className="bg-cover bg-center h-screen flex  items-center justify-start">
 
-          <form className="bg-white p-6 h-[30.1rem] border-l-slate-300 border-l-4 " onSubmit={handleSubmit}>
+          <form className="bg-white p-6 h-[30.1rem] border-l-slate-300 border-l-4 " >
             <h2 className="text-lg font-bold mb-4">Welcome Back!</h2>
             <p className="text-gray-700 text-center mb-4">Hello there! Ready to build your perfect resume?</p>
             <div className="mb-4">
