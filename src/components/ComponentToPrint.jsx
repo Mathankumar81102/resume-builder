@@ -3,13 +3,14 @@ import tceheader from "../assets/tce-header.png";
 import { useSelector } from "react-redux";
 import { setProgrammingLanguages } from "../app/DataSlice";
 import List from "./List";
+import './ComponentToPrint.css'
 
 export const ComponentToPrint = React.forwardRef((props, ref) => {
   const userData = useSelector((state) => state.userData)
   let today = new Date();
   return (
 
-    <div className="flex justify-center mt-20 mx-auto items-center">
+    <div className="flex justify-center mx-auto items-center">
       <div className="h-[297mm] overflow-y-scroll shadow-2xl border-zinc-400 bg-white border-4  m-0 p-0">
         <div ref={ref} className="w-[210mm] h-full" >
           <div className="w-[210mm] m-0"><img src={tceheader} alt="tceheader"></img></div>
