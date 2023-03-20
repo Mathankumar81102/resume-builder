@@ -11,7 +11,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
   return (
 
     <div className="flex justify-center mx-auto items-center">
-      <div className="h-[297mm] overflow-y-scroll shadow-2xl border-zinc-400 bg-white border-4  m-0 p-0">
+      <div className="h-[297mm] overflow-y-scroll shadow-2xl border-zinc-400 bg-white border-4 m-0 p-0">
         <div ref={ref} className="w-[210mm] h-full" >
           <div className="w-[210mm] m-0"><img src={tceheader} alt="tceheader"></img></div>
           <div className="pt-2 absolute right-[2.5cm] ">

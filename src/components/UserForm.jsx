@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PersonalDetails from "./PersonalDetails";
 import { useSelector } from "react-redux";
@@ -13,47 +13,49 @@ function UserForm() {
   console.log(template);
   const step = useSelector((state) => state.userData.step)
 
+  const [show, setShow] = useState(false);
+
   switch (step) {
     case 1:
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <PersonalDetails />
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
       )
     case 2:
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <Academics />
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
       )
     case 3:
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <Activities />
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
       )
     case 4:
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <Projects />
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
       )
     case 5:
       return (
         <div>
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
 
       )
     default:
       return (
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <Activities />
-          <Example />
+          <Example show={show} setShow={setShow} />
         </div>
       )
   }

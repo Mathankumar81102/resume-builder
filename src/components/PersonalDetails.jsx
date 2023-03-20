@@ -59,17 +59,17 @@ function PersonalDetails() {
 
 
   return (
-    <div className="p-10 pt-20 max-w-4xl ">
+    <div className="md:p-10 md:pt-20 max-w-4xl">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-[100vw]"
       >
-        <h1 className="mb-6 change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
+        <h1 className="mb-6 change-font text-blue-700 font-extraboldbold text-3xl">
           Personal Details
         </h1>
-        <div className="grid grid-cols-2 space-x-10">
+        <div className="grid md:grid-cols-2 md:space-x-10">
 
-          <div className="mb-6 ml-10">
+          <div className="mb-6">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="name">
               Name
             </label>
