@@ -59,7 +59,7 @@ function PersonalDetails() {
 
 
   return (
-    <div className="p-10 pt-20 max-w-4xl ">
+    <div className=" max-w-4xl h-[90vh] overflow-y-scroll">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
