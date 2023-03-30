@@ -85,7 +85,7 @@ function Activities() {
 
 
   return (
-    <div className="p-10 pt-20 max-w-4xl ">
+    <div className="max-w-4xl lg:col-span-2 col-span-1 w-[100vw] md:w-auto">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"

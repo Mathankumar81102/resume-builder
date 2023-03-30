@@ -59,17 +59,17 @@ function PersonalDetails() {
 
 
   return (
-    <div className="md:p-10 md:pt-20 max-w-4xl">
+    <div className="max-w-4xl lg:col-span-2 col-span-1 w-[100vw] md:w-auto">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 w-[100vw]"
+        className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-2"
       >
         <h1 className="mb-6 change-font text-blue-700 font-extraboldbold text-3xl">
           Personal Details
         </h1>
-        <div className="grid md:grid-cols-2 md:space-x-10">
+        <div className="grid md:grid-cols-2">
 
-          <div className="mb-6">
+          <div className="mb-4 mx-2">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="name">
               Name
             </label>
@@ -81,7 +81,7 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setName(e.target.value))}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 mx-2">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="email">
               Email
             </label>
@@ -93,7 +93,7 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setEmail(e.target.value))}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 mx-2">
             <label className="block text-lg  text-gray-700 font-bold mb-2" htmlFor="phone">
               Phone
             </label>
@@ -115,7 +115,7 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setRegno(e.target.value))}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 mx-2">
             <label
               className="block text-lg text-gray-700 font-bold mb-2"
               htmlFor="address"
@@ -129,7 +129,7 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setAddress(e.target.value))}
             ></textarea>
           </div>
-          <div className="mb-6">
+          <div className="mb-6 mx-2">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="phone">
               Date of Birth
             </label>
@@ -141,7 +141,7 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setDate(e.target.value))}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4 mx-2">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="phone">
               Age
             </label>
@@ -153,9 +153,9 @@ function PersonalDetails() {
               onChange={(e) => dispatch(setAge(e.target.value))}
             />
           </div>
-          <div className="mt-2">
+          <div className="mt-2 mx-2">
             <h1 className="text-lg  text-gray-700 font-bold">Gender</h1>
-            <div className="flex mb-8 p-2 pl-1 rounded shadow-xl bg-zinc-50 justify-between ">
+            <div className="flex mb-8 p-2 rounded shadow-xl bg-zinc-50 justify-between ">
               <div>
                 <label className="text-lg text-gray-700">
                   Male
@@ -178,7 +178,7 @@ function PersonalDetails() {
 
           </div>
 
-          <div className="mb-6 ">
+          <div className="mb-6 mx-2">
             <label className="block text-lg  text-gray-700 font-bold mb-3" htmlFor="name">
               Father's  Name
             </label>
@@ -191,7 +191,7 @@ function PersonalDetails() {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 mx-2">
             <label className="block text-lg text-gray-700 font-bold mb-2" htmlFor="name">
               Mother Tongue
             </label>
@@ -205,7 +205,7 @@ function PersonalDetails() {
           </div>
 
 
-          <div className="mb-6">
+          <div className="mb-6  mx-2">
             <label
               className="block text-lg text-gray-700 font-bold mb-2"
               htmlFor="address"

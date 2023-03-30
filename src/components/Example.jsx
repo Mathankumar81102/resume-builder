@@ -23,7 +23,7 @@ export const Example = ({ show, setShow }) => {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <div className="lg:col-span-3">
       <div onClick={handleShow} id="previewIcon" className="fixed right-2 bottom-2 p-3 rounded-full bg-[#adf6de]">
         <img style={{ width: "32px" }} src={previewIcon}></img>
       </div>
