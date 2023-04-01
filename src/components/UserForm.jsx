@@ -18,28 +18,28 @@ function UserForm() {
   switch (step) {
     case 1:
       return (
-        <div className="mx-2 lg:mx-0 lg:ml-10 mt-10 grid lg:grid-cols-5 lg:gap-2">
+        <div className="mx-10 lg:mx-0 md:mx-14 sm:mx-auto px-8  lg:ml-5 mt-10 grid lg:grid-cols-5 lg:gap-2">
           <PersonalDetails />
           <Example show={show} setShow={setShow} />
         </div>
       )
     case 2:
       return (
-        <div className="mx-2 lg:mx-0 lg:ml-10 mt-10 grid lg:grid-cols-5 lg:gap-2">
+        <div className="mx-2 lg:mx-0 md:mx-5 lg:ml-5 mt-10 grid sm:mx-auto px-8 lg:grid-cols-5 lg:gap-2">
           <Academics />
           <Example show={show} setShow={setShow} />
         </div>
       )
     case 3:
       return (
-        <div className="mx-2 lg:mx-0 lg:ml-10 mt-10 grid lg:grid-cols-5 lg:gap-2">
+        <div className="mx-2 lg:mx-0 md:mx-5 lg:ml-5 mt-10 grid lg:grid-cols-5 sm:mx-auto px-8 lg:gap-2">
           <Activities />
           <Example show={show} setShow={setShow} />
         </div>
       )
     case 4:
       return (
-        <div className="mx-2 lg:mx-0 lg:ml-10 mt-10 grid lg:grid-cols-5 lg:gap-2">
+        <div className="mx-2 lg:mx-0 md:mx-5 lg:ml-5 mt-10 grid lg:grid-cols-5 sm:mx-auto px-8 lg:gap-2">
           <Projects />
           <Example show={show} setShow={setShow} />
         </div>
@@ -53,7 +53,7 @@ function UserForm() {
       )
     default:
       return (
-        <div className="mx-2 lg:mx-0 lg:ml-10 mt-10 grid lg:grid-cols-5 lg:gap-2">
+        <div className="mx-2 lg:mx-0 md:mx-5 lg:ml-5 mt-10 grid sm:mx-auto px-8 lg:grid-cols-5 lg:gap-2">
           <Activities />
           <Example show={show} setShow={setShow} />
         </div>

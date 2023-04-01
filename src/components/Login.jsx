@@ -1,24 +1,37 @@
 import Navbar from './Navbar';
 import React, { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { auth } from '../fire-base';
 function Login() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState('');
+  const [registeremail, setregisterEmail] = useState('');
+  const [loginemail, setloginEmail] = useState('');
+  const [registerusername, setregisterUsername] = useState("");
+  const [loginpassword, setloginPassword] = useState('');
+  const [registerpassword, setregisterPassword] = useState('');
   const Navigate = useNavigate();
-  const [islogin, setisLogin] = useState(true);
+  const [islogin, setisLogin] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post('/api/login', { email, password });
-      localStorage.setItem('token', res.data.token);
-      Navigate('/Home');
-    } catch (err) {
-      console.error(err);
-    }
+    
   };
+
+  const register = async ()=>{
+    try{
+  const user = await createUserWithEmailAndPassword(auth,registeremail,registerpassword)
+  console.log(user)
+  alert("User Registered")
+     }catch(error){
+      console.log(error.message)
+    }
+}
+  
+  const login = async  ()=>{}
+
+  const logout = async  ()=>{}
+
 
 
   return (
@@ -39,28 +52,29 @@ function Login() {
             <div className="mb-4">
 
 
-              <label className="block text-gray-700 font-bold mb-2 ">
+              {(!islogin)&&<label className="block text-gray-700 font-bold mb-2 ">
                 Username
-
-              </label>
-              <input
-                className="border border-gray-400 p-2 rounded-lg w-full"
+                { (<input
+                className={"border border-gray-400 p-2 rounded-lg w-full "}
                 type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="yourusername" />
+                value={registerusername}
+                onChange={(e) => setregisterUsername(e.target.value)}
+                placeholder="yourusername"
+              />)}
+              </label>}
+              
 
 
 
-              {(!islogin) && (<label className={"block text-gray-700 mt-2 font-bold mb-2 "}>
+              {(<label className={"block text-gray-700 mt-2 font-bold mb-2 "}>
                 Email
 
               </label>)}
-              {(!islogin) && (<input
+              { (<input
                 className={"border border-gray-400 p-2 rounded-lg w-full "}
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={(!islogin)?registeremail:loginemail}
+                onChange={(e) => setregisterEmail(e.target.value)}
                 placeholder="example@email.com"
               />)}
             </div>
@@ -71,13 +85,13 @@ function Login() {
               <input
                 className="border border-gray-400 p-2 rounded-lg w-full"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={(!islogin)?registerpassword:loginpassword}
+                onChange={(e) => setregisterPassword(e.target.value)}
                 placeholder="*******"
               />
             </div>
 
-            <button className={((islogin) ? 'mt-8' : 'mt-0') + ` bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 `}>
+            <button onClick={register} className={((islogin) ? 'mt-6' : 'mt-0') + ` bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 `}>
               {((islogin) ? 'Log in' : 'Register')}
             </button>
             <div className="text-center text-gray-700 bg-white mt-6">

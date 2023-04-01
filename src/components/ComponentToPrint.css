@@ -5,5 +5,24 @@
 }
 
 .zoom {
-  zoom: 80%;
+  transform-origin: top left;
+  transform: scale(0.55); /* default value for below 640px */
+}
+
+@media (min-width: 640px) {
+  .zoom {
+    transform: scale(0.6);
+  }
+}
+
+@media (min-width: 768px) {
+  .zoom {
+    transform: scale(0.8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .zoom {
+    transform: scale(0.8);
+  }
 }

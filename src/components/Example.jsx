@@ -25,13 +25,13 @@ export const Example = ({ show, setShow }) => {
   return (
     <div className="lg:col-span-3">
       <div onClick={handleShow} id="previewIcon" className="fixed right-2 bottom-2 p-3 rounded-full bg-[#adf6de]">
-        <img style={{ width: "32px" }} src={previewIcon}></img>
+        <img style={{ width: "32px" }} alt='preview' src={previewIcon}></img>
       </div>
 
       <div className={step === 5 || show ? "m-auto w-full" : "hidden md:block"}>
         <ComponentToPrint ref={componentRef} />
 
-        <div className="mt-2 flex items-center justify-center pb-7 pt-5 ">
+        <div className="flex items-center justify-center pb-7 pt-5 ">
           {step === 5 && <button
             className=" bg-zinc-500 m-10 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={() => dispatch(prevStep())}

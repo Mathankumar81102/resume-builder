@@ -10,12 +10,12 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
   let today = new Date();
   return (
 
-    <div className="md: flex justify-center mx-auto items-center zoom">
+    <div className="md:mt-10 sm:mt-10 lg:mt-auto mt-10 py-10 lg:my-10  flex justify-center mr-10  items-center   sm:mx-auto ">
       <div className="h-[297mm] overflow-y-scroll shadow-2xl border-zinc-400 bg-white border-4 m-0 p-0">
-        <div ref={ref} className="w-[210mm] h-full" >
+        <div ref={ref} className="w-[210mm] h-full relative" >
           <div className="w-[210mm] m-0"><img src={tceheader} alt="tceheader"></img></div>
-          <div className="pt-2 absolute right-[2.5cm] ">
-            {userData.profilePhoto !== "" && <img src={userData.profilePhoto} className="h-[3.0cm] w-[2.5cm]" alt="profilephoto"></img>}
+          <div className="pt-2 absolute right-[3.5cm] ">
+            {userData.profilePhoto !== "" && <img src={userData.profilePhoto} className=" h-[3.0cm] w-[2.5cm]" alt="profilephoto"></img>}
           </div>
           <div className="text-[12pt] mt-6 w-[210mm] px-[2cm] " >
             <div><span className="font-bold">NAME :</span> {userData.name}</div>
