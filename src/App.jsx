@@ -3,8 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom'
-import { PDFViewer } from "@react-pdf/renderer"
-import { MyDoc } from './components/MyDoc'
+
 
 function App() {
 

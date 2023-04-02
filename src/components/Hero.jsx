@@ -15,35 +15,11 @@ function Hero() {
           </p>
         </div>
 
-        <div className="home-img bg-zinc-200 mt-10">
-          <img
-            alt="step-1"
-            src={require("../assets/step-1-img.jpg")}
-            width="400px"
-          />
+        
 
-          <div className="home-img-div">
-            <h1 className="text-4xl font-bold">Choose your design</h1>
-            <p className="mt-8 text-2xl">
-              Use our pre-designed templates and create the perfect resume for
-              your job search. easily.
-            </p>
-            <h2 className="font-bold mt-2 text-2xl">
-              Keep it easy and simple.
-            </h2>
-          </div>
-        </div>
+        
 
-        <button
-          onClick={() => {
-            Navigate("/Home/Templates");
-          }}
-          className="home-btn mx-auto p-4 mt-8 font-extrabold text-2xl"
-        >
-          Get My Resume !
-        </button>
-
-        <div className="home-img bg-zinc-200 mt-10">
+        <div className="home-img rounded-3xl bg-zinc-200 mt-10">
           <div className="home-img-div">
             <h1 className="text-4xl font-bold">Fill Your Contents</h1>
             <p className="mt-8 text-2xl">
@@ -61,7 +37,16 @@ function Hero() {
           />
         </div>
 
-        <div className="home-img bg-zinc-200 mt-10">
+        <button
+          onClick={() => {
+            Navigate("/Home/UserForm");
+          }}
+          className="home-btn mx-auto p-4 mt-8 font-extrabold text-2xl"
+        >
+          Create Resume !
+        </button>
+
+        <div className="home-img rounded-3xl bg-zinc-200 mt-10">
           <img
             alt="step-2"
             src={require("../assets/step-3-img.jpg")}

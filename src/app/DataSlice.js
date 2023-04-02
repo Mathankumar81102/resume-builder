@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+    username:"",
     step: 1,
     name: "",
     phone: "",
@@ -32,6 +33,7 @@ export const dataSlice = createSlice({
     name: 'userData',
     initialState,
     reducers: {
+        setusername:(state, action) => { state.username = action.payload },
         setName: (state, action) => { state.name = action.payload },
         setEmail: (state, action) => { state.email = action.payload },
         setPhone: (state, action) => { state.phone = action.payload },
@@ -61,4 +63,4 @@ export const dataSlice = createSlice({
 })
 
 export default dataSlice.reducer;
-export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setSignature, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective } = dataSlice.actions
+export const { setName, setAddress, setAge, setRegno, setDate, setEmail, setSignature, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setProjectList, setFatherName, setGender, setLanguages, setMotherTongue, setPhone, nextStep, prevStep, setHobbies, setProfilePhoto, setEducationList, setCoCurricularActivities, setExtraCurricularActivities, setAchievements, setProfessionalObjective,setusername } = dataSlice.actions

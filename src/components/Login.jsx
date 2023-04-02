@@ -1,42 +1,74 @@
-import Navbar from './Navbar';
+import Header from './Header';
+import { useSelector, useDispatch } from "react-redux"
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { auth } from '../fire-base';
+import { setusername } from '../app/DataSlice';
 function Login() {
-  const [registeremail, setregisterEmail] = useState('');
-  const [loginemail, setloginEmail] = useState('');
-  const [registerusername, setregisterUsername] = useState("");
-  const [loginpassword, setloginPassword] = useState('');
-  const [registerpassword, setregisterPassword] = useState('');
+  const [username,setUsername]=useState("")
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  const navigate = useNavigate();
   const Navigate = useNavigate();
   const [islogin, setisLogin] = useState(false);
-
+  const dispatch = useDispatch();
+  const [isSignedIn,setIsSignedIn]=useState(false)
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(islogin)
+        if(islogin){
+          axios.post("http://localhost:3001/login",{username:username,password:password}).then((response)=>
+          {
+            if(response.data.status==="1"){
+            localStorage.setItem("user" ,response.data.user);
+            dispatch(setusername(username));
+            alert("User Logged In");
+            setIsSignedIn(true)
+            navigate("/Home",{state:{username}});
+            }
+            else if(response.data==="Invalid username"){
+            alert("Invalid Username");
+            }
+            else if(response.data==="Invalid password"){
+              alert("Invalid Password");
+              }
+    }
+    ).catch((err)=>{console.log(err,"Error has occured")})
+    }
+        
     
+    else{
+        axios.post("http://localhost:3001/signup",{username:username,email:email,password:password},{ withCredentials: true })
+        .then((response)=>
+        {
+            if(response.data==="User Already exists"){
+            alert("Username already exists ...")
+            }
+            else if(response.data==="User created successfully"){
+              alert("User Created Successfully !!")
+
+            }
+            else{
+            alert("User Registered Successfully. LOGIN NOW");
+
+        }
+        
+        
+        }).catch((err)=>{console.log(err,"Error has occured")});
+    
+    }
+    setUsername("");setEmail("");setPassword("");   
+
+
   };
 
-  const register = async ()=>{
-    try{
-  const user = await createUserWithEmailAndPassword(auth,registeremail,registerpassword)
-  console.log(user)
-  alert("User Registered")
-     }catch(error){
-      console.log(error.message)
-    }
-}
-  
-  const login = async  ()=>{}
-
-  const logout = async  ()=>{}
-
+ 
 
 
   return (
     <div>
-      <Navbar />
+      <Header />
 
       <div className={`Login  background-pic grid grid-cols-2 bg-cover bg-opacity-50  bg-gradient-to-br  h-full w-full bg-slate-200 justify-center items-center`}>
         <div className='col-start-1 w-full flex justify-end items-center'>
@@ -52,13 +84,13 @@ function Login() {
             <div className="mb-4">
 
 
-              {(!islogin)&&<label className="block text-gray-700 font-bold mb-2 ">
+              {<label className="block text-gray-700 font-bold mb-2 ">
                 Username
                 { (<input
                 className={"border border-gray-400 p-2 rounded-lg w-full "}
                 type="text"
-                value={registerusername}
-                onChange={(e) => setregisterUsername(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="yourusername"
               />)}
               </label>}
@@ -66,15 +98,15 @@ function Login() {
 
 
 
-              {(<label className={"block text-gray-700 mt-2 font-bold mb-2 "}>
+              {(!islogin)&&(<label className={"block text-gray-700 mt-2 font-bold mb-2 "}>
                 Email
 
               </label>)}
-              { (<input
+              {(!islogin)&& (<input
                 className={"border border-gray-400 p-2 rounded-lg w-full "}
                 type="email"
-                value={(!islogin)?registeremail:loginemail}
-                onChange={(e) => setregisterEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="example@email.com"
               />)}
             </div>
@@ -85,18 +117,19 @@ function Login() {
               <input
                 className="border border-gray-400 p-2 rounded-lg w-full"
                 type="password"
-                value={(!islogin)?registerpassword:loginpassword}
-                onChange={(e) => setregisterPassword(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="*******"
               />
             </div>
 
-            <button onClick={register} className={((islogin) ? 'mt-6' : 'mt-0') + ` bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 `}>
+            <button onClick={handleSubmit} className={((islogin) ? 'mt-6' : 'mt-0') + ` bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 `}>
               {((islogin) ? 'Log in' : 'Register')}
             </button>
             <div className="text-center text-gray-700 bg-white mt-6">
 
-              {(islogin) ? "Don't have an account ? " : "You already have an account ?  "} <button onClick={() => { setisLogin((val) => !val) }} className="text-blue-500 hover:text-blue-600"> {((!islogin) ? 'Log in' : 'Register')}</button>
+              {(islogin) ? "Don't have an account ? " : "You already have an account ?  "}
+               <button onClick={(e) => {e.preventDefault(); setisLogin((val) => !val) }} className="text-blue-500 hover:text-blue-600"> {((!islogin) ? 'Log in' : 'Register')}</button>
             </div>
 
           </form>

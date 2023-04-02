@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { nextStep, setCoCurricularActivities, setProfessionalObjective, setExtraCurricularActivities, setAchievements, setHobbies, prevStep } from "../app/DataSlice"
+import { nextStep, setCoCurricularActivities, setProfessionalObjective, setExtraCurricularActivities, setAchievements, setHobbies, prevStep,setusername } from "../app/DataSlice"
 import FileBase64 from 'react-file-base64';
 
 import ListInput from "./ListInput";
@@ -127,7 +127,10 @@ function Activities() {
           <button
             className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
-            onClick={() => dispatch(nextStep())}
+            onClick={() => {
+              dispatch(setusername(localStorage.getItem("user")))
+              dispatch(nextStep())
+            }}
           >
             Continue
           </button>

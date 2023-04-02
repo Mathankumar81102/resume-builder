@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { nextStep, prevStep, setProjectList, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies } from '../app/DataSlice'
-
+import { nextStep, prevStep, setProjectList, setProgrammingLanguages, setAreasOfInterest, setToolsAndTechnologies, setusername } from '../app/DataSlice'
+import axios from 'axios'
 import DeleteIcon from '../assets/delete.png'
 import AddIcon from '../assets/add.png'
 import ListInput from './ListInput'
@@ -10,51 +10,67 @@ import ListInput from './ListInput'
 function Projects() {
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
+    dispatch(setusername(localStorage.getItem("user")))
 
-    const { projectList, programmingLanguages, toolsAndTechnologies, areasOfInterest } = useSelector((state) => state.userData);
+    // projectList, programmingLanguages, toolsAndTechnologies, areasOfInterest
+    const userData = useSelector((state) => state.userData);
+
+    const handleSubmit=async (e)=>{
+        e.preventDefault();
+        console.log(localStorage.getItem('user'))
+        if(window.confirm("Are You Sure to Submit your Resume ?")){
+            axios.post("http://localhost:3001/createData",{userData:userData}).then((response)=>
+        {
+        console.log(response.data)
+        })
+        .catch((err)=>{console.log(err,"Error has occured")})
+    
+            dispatch(nextStep())
+        }
+    
+    }
+
+
 
     const handleInputChange = (event, index) => {
         const { name, value } = event.target;
         if (name === 'programmingLanguages') {
-            const list = [...programmingLanguages];
+            const list = [...userData.programmingLanguages];
             list[index] = value
             dispatch(setProgrammingLanguages(list));
         }
         else if (name === 'toolsAndTechnologies') {
-            const list = [...toolsAndTechnologies];
+            const list = [...userData.toolsAndTechnologies];
             list[index] = value
             dispatch(setToolsAndTechnologies(list));
         }
         else if (name === 'areasOfInterest') {
-            const list = [...areasOfInterest];
+            const list = [...userData.areasOfInterest];
             list[index] = value
             dispatch(setAreasOfInterest(list));
         }
         else {
-            const list = [...projectList];
+            const list = [...userData.projectList];
             list[index] = { ...list[index], [name]: value };
             dispatch(setProjectList(list));
-            console.log(projectList)
+            console.log(userData.projectList)
         }
     };
 
     const handleAddItem = (event) => {
         const eventName = event.target.name;
         if (eventName === 'programmingLanguages') {
-            dispatch(setProgrammingLanguages([...programmingLanguages, ""]));
+            dispatch(setProgrammingLanguages([...userData.programmingLanguages, ""]));
         }
         else if (eventName === 'toolsAndTechnologies') {
-            dispatch(setToolsAndTechnologies([...toolsAndTechnologies, ""]));
+            dispatch(setToolsAndTechnologies([...userData.toolsAndTechnologies, ""]));
         }
         else if (eventName === 'areasOfInterest') {
-            dispatch(setAreasOfInterest([...areasOfInterest, ""]));
+            dispatch(setAreasOfInterest([...userData.areasOfInterest, ""]));
         }
         else {
             dispatch(setProjectList([
-                ...projectList,
+                ...userData.projectList,
                 { name: "", description: "", link: "" },
             ]));
         }
@@ -62,22 +78,22 @@ function Projects() {
 
     const handleRemoveItem = (name, index) => {
         if (name === 'programmingLanguages') {
-            const list = [...programmingLanguages];
+            const list = [...userData.programmingLanguages];
             list.splice(index, 1);
             dispatch(setProgrammingLanguages(list));
         }
         else if (name === 'toolsAndTechnologies') {
-            const list = [...toolsAndTechnologies];
+            const list = [...userData.toolsAndTechnologies];
             list.splice(index, 1);
             dispatch(setToolsAndTechnologies(list));
         }
         else if (name === 'areasOfInterest') {
-            const list = [...areasOfInterest];
+            const list = [...userData.areasOfInterest];
             list.splice(index, 1);
             dispatch(setAreasOfInterest(list));
         }
         else {
-            const list = [...projectList];
+            const list = [...userData.projectList];
             list.splice(index, 1);
             dispatch(setProjectList(list));
         }
@@ -86,21 +102,21 @@ function Projects() {
 
     return (
         <div className="max-w-4xl lg:col-span-2 col-span-1 w-[100vw] md:w-auto">
-            <form onSubmit={handleSubmit}
+            <form 
                 className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
             >
                 <h1 className="mb-6 change-font pl-10 text-blue-700 font-extraboldbold text-3xl">
                     Skills and Projects
                 </h1>
 
-                <ListInput label="programmingLanguages" list={programmingLanguages} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
+                <ListInput label="programmingLanguages" list={userData.programmingLanguages} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
-                <ListInput label="toolsAndTechnologies" list={toolsAndTechnologies} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
+                <ListInput label="toolsAndTechnologies" list={userData.toolsAndTechnologies} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
-                <ListInput label="areasOfInterest" list={areasOfInterest} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
+                <ListInput label="areasOfInterest" list={userData.areasOfInterest} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} handleInputChange={handleInputChange} />
 
                 <div className="mb-6 px-10">
-                    {projectList.map((project, index) => (
+                    {userData.projectList.map((project, index) => (
 
                         <div key={index}>
                             {(index !== 0) && (<hr className="border-t-neutral-400 solid mt-8" />)}
@@ -148,7 +164,7 @@ function Projects() {
 
 
 
-                            {index === projectList.length - 1 && (
+                            {index === userData.projectList.length - 1 && (
                                 <button type="button" name='projects' className="mt-14 mx-auto px-6 pb-3 bg-slate-200  flex justify-center space-x-3 items-baseline" onClick={(e) => { handleAddItem(e) }}>
                                     <div ><img alt="add" name="projects" className="w-5 mt-5" src={AddIcon} /></div>
                                     <div className="text-lg font-light"> Add project</div>
@@ -171,7 +187,7 @@ function Projects() {
                     <button
                         className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
-                        onClick={() => dispatch(nextStep())}
+                        onClick={handleSubmit}
                     >
                         Submit
                     </button>

@@ -14,6 +14,7 @@ import UserForm from './components/UserForm';
 import store from './app/store';
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// const user=localStorage.getItem("user");
 root.render(
   // <React.StrictMode>
   <QueryClientProvider client={queryClient}>
@@ -32,7 +33,7 @@ root.render(
         </Routes>
       </BrowserRouter>
 
-      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+      <ReactQueryDevtools initialIsOpen={false} position='bottom-left' />
     </Provider>
   </QueryClientProvider>
 );

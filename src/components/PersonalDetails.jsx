@@ -8,6 +8,7 @@ import AddIcon from '../assets/add.png'
 
 function PersonalDetails() {
 
+  const dispatch = useDispatch();
   const handleProfilePhotoUpload = (file) => {
     dispatch(setProfilePhoto(file.base64));
     console.log("File ", file)
@@ -22,7 +23,6 @@ function PersonalDetails() {
     dispatch(setGender(event.target.value))
   }
 
-  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here

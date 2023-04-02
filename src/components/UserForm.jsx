@@ -7,10 +7,10 @@ import { Example } from "./Example";
 import Activities from "./Activities";
 import Projects from "./Projects"
 function UserForm() {
-  const {
-    state: { template },
-  } = useLocation();
-  console.log(template);
+  // const {
+  //   state: { template },
+  // } = useLocation();
+  // console.log(template);
   const step = useSelector((state) => state.userData.step)
 
   const [show, setShow] = useState(false);
