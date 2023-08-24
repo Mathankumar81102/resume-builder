@@ -18,9 +18,7 @@ function App() {
       <div>
         <Footer />
       </div>
-      {/* <PDFViewer className='w-96 h-screen '>
-        <MyDoc />
-      </PDFViewer> */}
+      
 
     </div>
 

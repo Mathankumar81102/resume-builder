@@ -162,31 +162,31 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
               <div className="flex justify-between mt-6 ">
                 <div className="flex">
                   <h2 className="font-bold">DATE OF BIRTH:</h2>
-                  <p>{userData.date}</p>
+                  <p>&nbsp;{userData.date}</p>
                 </div>
                 <div className="flex">
                   <h2 className="font-bold">AGE:</h2>
-                  <p>{userData.age}</p>
+                  <p>&nbsp;{userData.age}</p>
                 </div>
                 <div className="flex">
                   <h2 className="font-bold">GENDER:</h2>
-                  <p>{userData.gender}</p>
+                  <p>&nbsp;{userData.gender.toUpperCase()}</p>
                 </div>
               </div>
 
               <div className="flex">
                 <h2 className="font-bold">FATHER'S NAME: </h2>
-                <p>{userData.fatherName}</p>
+                <p>&nbsp;{userData.fatherName}</p>
               </div>
 
               <div className="flex">
                 <h2 className="font-bold">MOTHER TONGUE: </h2>
-                <p>{userData.motherTongue}</p>
+                <p>&nbsp;{userData.motherTongue}</p>
               </div>
 
               <div className="flex">
                 <h2 className="font-bold">LANGUAGES KNOWN: </h2>
-                <p>{userData.languages.join(", ")}</p>
+                <p>&nbsp;{userData.languages.join(", ")}</p>
               </div>
             </div>
 
