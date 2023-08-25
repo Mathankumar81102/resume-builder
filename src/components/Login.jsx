@@ -18,7 +18,7 @@ function Login() {
     e.preventDefault();
     console.log(islogin)
         if(islogin){
-          axios.post("http://localhost:3001/login",{username:username,password:password}).then((response)=>
+          axios.post(process.env.REACT_APP_BACKEND_URL+"/login",{username:username,password:password}).then((response)=>
           {
             if(response.data.status==="1"){
             localStorage.setItem("user" ,response.data.user);
@@ -39,7 +39,7 @@ function Login() {
         
     
     else{
-        axios.post("http://localhost:3001/signup",{username:username,email:email,password:password},{ withCredentials: true })
+        axios.post(process.env.REACT_APP_BACKEND_URL+"/signup",{username:username,email:email,password:password},{ withCredentials: true })
         .then((response)=>
         {
             if(response.data==="User Already exists"){

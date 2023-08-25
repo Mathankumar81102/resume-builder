@@ -14,7 +14,7 @@ const Navbar = () => {
     const username=localStorage.getItem("user");
     console.log(username)
     const handleGetResume=async (e)=>{
-        axios.post("http://localhost:3001/getData",{username:username}).then((response)=>
+        axios.post(process.env.REACT_APP_BACKEND_URL + "/getData",{username:username}).then((response)=>
         {
         console.log(response.data)
         if(response.data==="No username"){

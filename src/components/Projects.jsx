@@ -19,7 +19,7 @@ function Projects() {
         e.preventDefault();
         console.log(localStorage.getItem('user'))
         if(window.confirm("Are You Sure to Submit your Resume ?")){
-            axios.post("http://localhost:3001/createData",{userData:userData}).then((response)=>
+            axios.post(process.env.REACT_APP_BACKEND_URL+"/createData",{userData:userData}).then((response)=>
         {
         console.log(response.data)
         })
