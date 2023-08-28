@@ -58,7 +58,7 @@ const Navbar = () => {
         
         if(window.confirm("Do you want to logout ?")){
             localStorage.removeItem('user');
-            Navigate("/")
+            window.location.href="/"
         }
     }
     return (
