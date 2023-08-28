@@ -40,7 +40,7 @@ function Academics() {
     ]));
   };
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (name,index) => {
     const list = [...educationList];
     list.splice(index, 1);
     dispatch(setEducationList(list));
@@ -74,7 +74,7 @@ function Academics() {
                 <input
                   type="text"
                   name="school"
-                  placeholder={(index === 0) ? `Enter your 10th School Name` : (index === 1) ? `Enter your 12th School Name (or) Diplomo College Name` : 'Enter your other College Name'}
+                  placeholder={(index === 0) ? `Enter your 10th School Name` : (index === 1) ? `Enter your 12th School Name (or) Diplomo College Name` : 'Enter your College Name'}
                   className="my-2 bg-zinc-50 shadow-xl focus:outline-slate-300 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
                   value={education.school}
                   onChange={(e) => handleInputChange(e, index)}

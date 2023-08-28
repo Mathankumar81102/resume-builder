@@ -43,16 +43,34 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
                     </tr>
                   </thead>
                   <tbody>
+                    {userData.educationList.length > 3 && userData.educationList.slice(3, userData.educationList.length).reverse().map((element, index) => {
+                      return (
+                        <tr key={index}>
+                          <td className=" border-x-2 py-2 px-4 text-center border-[#322432]">
+                            {element.degree}
+                          </td>
+                          <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">{element.school}</td>
+                          <td className=" border-x-2 py-2 text-center px-4 border-[#322432]">
+                            {element.board}
+                          </td>
+                          <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">
+                            {element.endYear}</td>
+                          <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">
+                            {element.marks}</td>
+                        </tr>
+                      )
+                    }
+                    )}
                     <tr>
-                      <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">{userData.educationList[userData.educationList.length - 1]?.degree}</td>
-                      <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">{userData.educationList[userData.educationList.length - 1]?.school}</td>
+                      <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">{userData.educationList[2]?.degree}</td>
+                      <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">{userData.educationList[2]?.school}</td>
                       <td className=" border-x-2 py-2 text-center px-4 border-[#322432]">
-                        {userData.educationList[userData.educationList.length - 1]?.board}
+                        {userData.educationList[2]?.board}
                       </td>
                       <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">
-                        {userData.educationList[userData.educationList.length - 1]?.endYear}</td>
+                        {userData.educationList[2]?.endYear}</td>
                       <td className=" border-x-2 py-2 px-4 border-[#322432] text-center">
-                        {userData.educationList[userData.educationList.length - 1]?.marks}</td>
+                        {userData.educationList[2]?.marks}</td>
                     </tr>
                     <tr>
                       <td className=" border-x-2 py-2 px-4 text-center border-[#322432]">

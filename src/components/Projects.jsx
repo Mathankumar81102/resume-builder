@@ -93,6 +93,7 @@ function Projects() {
             dispatch(setAreasOfInterest(list));
         }
         else {
+            console.log("Deleted index is "+index);
             const list = [...userData.projectList];
             list.splice(index, 1);
             dispatch(setProjectList(list));
@@ -123,7 +124,7 @@ function Projects() {
                             <div className="text-lg text-gray-700 font-bold mb-6 mt-6 flex justify-between">
                                 Project Details - {index + 1}
                                 {index !== 0 && <button type="button" >
-                                    <img alt="delete" name="project" onClick={() => handleRemoveItem(index)} className="w-5 " src={DeleteIcon} />
+                                    <img alt="delete" name="project" onClick={() => handleRemoveItem("Project",index)} className="w-5 " src={DeleteIcon} />
                                 </button>}
                             </div>
                             <label className="my-6">
